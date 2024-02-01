@@ -1,0 +1,21 @@
+<section class="products">
+  <div class="container">
+    <h2 class="products__title">Описание пиццы</h2>
+    <div class="product-item">
+
+        <ng-template [ngIf]=product.image >
+          <div class="product__image">
+            <img src="{{product.image}}">
+          </div>
+        </ng-template>
+
+        <custom-title [title]="product.title | uppercase"></custom-title>
+
+        <div class="product__text">{{product.description | wordUpper:['томат' , 'сыр']}} </div>
+        <div class="product__action" #elem>
+          <a class="btn" routerLink="/order" [queryParams]="{product: product.title}">В корзину</a>
+        </div>
+
+    </div>
+  </div>
+</section>
